@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import axios from 'axios'
+import api from '../utils/api'
 
 interface TPosts{
     userId: number;
@@ -12,8 +12,8 @@ const usePosts =() => {
 const [posts, setPosts] = useState<TPosts[] | []>([]);
 
 const getAllPosts = async () =>{
- const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
- setPosts (() => response.data);
+ const response = await api.get('/posts');
+ setPosts(() => response.data);
 };
 
   return {
