@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import usePosts from '../hooks/usePosts';
 import MuITable from '../components/table/Table';
 import {Button, Modal, Paper} from '@mui/material';
-
+import MuiModal from '../components/modal/Modal';
 
 
 const Home = (): JSX.Element => {
@@ -20,9 +20,7 @@ const Home = (): JSX.Element => {
 
       return (
         <>
-        <Modal open={open} onClose={handleOpenModal}>
-            <Paper>Olá</Paper>
-        </Modal>
+        <MuiModal open={open} handleOpenModal={handleOpenModal}/>
         <Button type="button" onClick={handleOpenModal}>Criar nova postagem</Button>
           <MuITable columns={['id', 'title', 'body']} data={posts} />
         </>
