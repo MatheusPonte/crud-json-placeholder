@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import usePosts from './hooks/usePosts';
+import MuITable from './components/table/Table';
 
 function App() {
   const {posts, getAllPosts } = usePosts();
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <MuITable columns={['id', 'title', 'body']} data={posts} />
     </div>
   )
 }
