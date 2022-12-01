@@ -7,7 +7,7 @@ import {
     TableRow,
     Paper,
 } from '@mui/material';
-import React from 'react';
+import styles from './style';
 
 interface TMuITable {
     columns: string[];
@@ -15,8 +15,9 @@ interface TMuITable {
 }
 
 const MuITable = ({ columns, data }: TMuITable): JSX.Element => {
+    const {paper} = styles;
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} style={paper}>
             <Table stickyHeader size="small">
                 <TableHead>
                     <TableRow>
@@ -36,7 +37,7 @@ const MuITable = ({ columns, data }: TMuITable): JSX.Element => {
                     {
                         data && data.map((row) =>(
                             <TableRow key={row.id}>
-                                <TableCell  align="center" variant="head">{row.userid} </TableCell>
+                                <TableCell  align="center" variant="head">{row.userId} </TableCell>
                                 <TableCell  align="center" variant="head">{row.title} </TableCell>
                                 <TableCell  align="center" variant="head">{row.body} </TableCell>
                             </TableRow>
